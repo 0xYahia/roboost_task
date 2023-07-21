@@ -11,7 +11,7 @@ export class ProductService {
   private baseURL: string = environment.baseURL + '/products';
   constructor(private http: HttpClient) {}
 
-  addProductList(product: IProduct): Observable<IProduct> {
+  addProduct(product: IProduct): Observable<IProduct> {
     return this.http.post<IProduct>(this.baseURL, product);
   }
 

@@ -1,5 +1,11 @@
 <div class="container">
-  <button type="button" class="btn btn-sm btn-outline-primary">Add</button>
+  <button
+    type="button"
+    class="btn btn-sm btn-outline-primary"
+    (click)="addProduct()"
+  >
+    Add
+  </button>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <div class="col" *ngFor="let product of products">
       <div class="card shadow-sm product-card">
