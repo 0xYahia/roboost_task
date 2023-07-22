@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { IProduct } from '../models/iProudct';
+import { Observable } from 'rxjs';
+import { IProduct } from '../../models/iProudct';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -24,19 +24,18 @@ export class ProductService {
   }
 
   getCategories(): Observable<string[]> {
-    return this.http.get<string[]>(`${this.baseURL}/categories`);
+    return this.http.get<string[]>(`${environment.baseURL}/categories`);
   }
 
-  editingSubject: Subject<IProduct> = new Subject<IProduct>();
-  editProudct(product: IProduct) {
-    this.editingSubject.next(product);
-  }
-
-  updateProduct(product: IProduct): Observable<IProduct> {
-    return this.http.patch<IProduct>(`${this.baseURL}/${product.id}`, product);
+  updateProduct(product: IProduct, id: number): Observable<IProduct> {
+    return this.http.patch<IProduct>(`${this.baseURL}/${id}`, product);
   }
 
   deleteProduct(id: number): Observable<IProduct> {
     return this.http.delete<IProduct>(`${this.baseURL}/${id}`);
+  }
+
+  getProductsByCategory(category: string): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${this.baseURL}?category=${category}`);
   }
 }
