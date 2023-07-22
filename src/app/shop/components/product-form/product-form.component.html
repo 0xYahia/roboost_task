@@ -1,0 +1,50 @@
+<div class="container">
+  <form #prodForm="ngForm" [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="mb-3">
+      <!-- <label for="title" class="form-label">Title</label> -->
+      <input
+        formControlName="title"
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Title"
+      />
+    </div>
+    <div class="mb-3">
+      <!-- <label for="price" class="form-label">Price</label> -->
+      <input
+        formControlName="price"
+        type="number"
+        class="form-control"
+        id="price"
+        placeholder="Price"
+      />
+    </div>
+    <select formControlName="category" class="dropdown">
+      <option *ngFor="let category of categories">
+        {{ category }}
+      </option>
+    </select>
+    <div class="mb-3">
+      <!-- <label for="title" class="form-label">Title</label> -->
+      <input
+        (change)="uploadImage($event)"
+        type="file"
+        class="form-control"
+        id="image"
+      />
+    </div>
+    <div class="mb-3">
+      <!-- <label for="description" class="form-label">Description</label> -->
+      <textarea
+        formControlName="description"
+        class="form-control"
+        id="description"
+        rows="3"
+      ></textarea>
+    </div>
+    <button [disabled]="prodForm.invalid" type="submit" class="btn btn-primary">
+      {{ editingMode ? "Update" : "Add" }}
+    </button>
+  </form>
+</div>
