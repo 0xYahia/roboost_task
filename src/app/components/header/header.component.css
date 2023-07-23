@@ -1,0 +1,11 @@
+.navbar {
+  background-color: var(--main-color-dark);
+  margin-bottom: 62px;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    background-color: rgba(210, 253, 255, 0.3);
+    backdrop-filter: blur(6px);
+  }
+}

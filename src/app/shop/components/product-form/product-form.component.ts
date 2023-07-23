@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProduct } from 'src/app/models/iProudct';
+import { IProduct } from 'src/app/shop/models/iProudct';
 import { ProductService } from 'src/app/shop/services/product.service';
 
 @Component({

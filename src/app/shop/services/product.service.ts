@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IProduct } from '../../models/iProudct';
+import { IProduct } from '../models/iProudct';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ProductService {
     return this.http.post<IProduct>(this.baseURL, product);
   }
 
-  getProducts(): Observable<IProduct[]> {
+  getAllProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.baseURL);
   }
 

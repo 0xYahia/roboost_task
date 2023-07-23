@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="row">
+    <div class="container container--xs">
+      <h1 class="mb-1 text-center">
+        {{ editingMode ? "Update User" : "Sign up" }}
+      </h1>
+      <div class="registration-form woocommerce">
+        <h2>Register</h2>
+
+        <form (ngSubmit)="submitForm()" class="register" [formGroup]="form">
+          <div formGroupName="name">
+            <div
+              class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first"
+            >
+              <label for="reg_sr_firstname"
+                >First Name <span class="required">*</span></label
+              >
+              <input
+                formControlName="firstname"
+                type="text"
+                class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                name="sr_firstname"
+                id="reg_sr_firstname"
+                value=""
+                required=""
+                spellcheck="false"
+                data-ms-editor="true"
+              />
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+
+            <div
+              class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last"
+            >
+              <label for="reg_sr_lastname"
+                >Last Name <span class="required">*</span></label
+              >
+              <input
+                formControlName="lastname"
+                type="text"
+                class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                name="sr_lastname"
+                id="reg_sr_lastname"
+                value=""
+                required=""
+                spellcheck="false"
+                data-ms-editor="true"
+              />
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+          </div>
+
+          <div
+            class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide"
+          >
+            <label for="reg_email"
+              >Email address <span class="required">*</span></label
+            >
+            <input
+              formControlName="email"
+              type="email"
+              class="woocommerce-Input woocommerce-Input--text input-text form-control"
+              name="email"
+              id="reg_email"
+              value=""
+              required=""
+            />
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div formGroupName="address">
+            <div
+              class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide"
+            >
+              <label for="reg_city">City <span class="required">*</span></label>
+              <input
+                formControlName="city"
+                type="text"
+                class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                name="city"
+                id="reg_city"
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">This field is required</div>
+            </div>
+          </div>
+
+          <div
+            class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide"
+          >
+            <label for="reg_password"
+              >Password <span class="required">*</span></label
+            >
+            <input
+              formControlName="password"
+              type="password"
+              class="woocommerce-Input woocommerce-Input--text input-text form-control"
+              name="password"
+              id="reg_password"
+              required=""
+            />
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div
+            class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide"
+          >
+            <label for="reg_confirmPassword"
+              >confirmPassword <span class="required">*</span></label
+            >
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              class="woocommerce-Input woocommerce-Input--text input-text form-control"
+              name="confirmPassword"
+              id="reg_confirmPassword"
+              required=""
+            />
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="woocommerce-privacy-policy-text"></div>
+          <div class="woocomerce-FormRow form-row">
+            <input
+              type="hidden"
+              id="woocommerce-register-nonce"
+              name="woocommerce-register-nonce"
+              value="228d4ea883"
+            /><input type="hidden" name="_wp_http_referer" value="/signup/" />
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="this.form.invalid"
+              name="register"
+            >
+              {{ editingMode ? "Update" : "Register" }}
+            </button>
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+
+          <div class="woocommerce-simple-registration-login-link">
+            <a
+              href="https://themes.getbootstrap.com/wp-login.php?redirect_to=https%3A%2F%2Fthemes.getbootstrap.com%2Fsignup%2F"
+              >Log in</a
+            >
+            <div class="invalid-feedback">This field is required</div>
+          </div>
+        </form>
+      </div>
+
+      <p class="text-gray-soft text-center small mb-2">
+        Already have an account?
+        <a href="https://themes.getbootstrap.com/signin/">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>

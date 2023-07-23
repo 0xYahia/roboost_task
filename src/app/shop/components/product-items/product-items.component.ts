@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IProduct } from 'src/app/models/iProudct';
+import { IProduct } from 'src/app/shop/models/iProudct';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class ProductItemsComponent {
   constructor(private router: Router, private prodService: ProductService) {}
 
   editProd(id: number) {
-    this.router.navigateByUrl(`/shop/edit/${id}`);
+    this.router.navigate([`/shop/edit/${id}`]);
   }
 
   deleteProd(id: number, deleteConfirm: HTMLDialogElement) {
