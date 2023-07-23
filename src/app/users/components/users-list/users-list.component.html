@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">FirstName</th>
+          <th scope="col">LastName</th>
+          <th scope="col">Email</th>
+          <th scope="col">City</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <dialog #deleteConfirm>
+            <h1>Are you sure?</h1>
+            <button (click)="deleteUser(user.id)">Yes</button>
+            <button (click)="deleteConfirm.close()">No</button>
+          </dialog>
+          <th scope="row">{{ user.id }}</th>
+          <td>{{ user.name.firstname }}</td>
+          <td>{{ user.name.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address.city }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="updateUser(user.id, user)"
+              routerLink="/users/edit/{{ user.id }}"
+            >
+              Edit
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-danger"
+              (click)="deleteConfirm.showModal()"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

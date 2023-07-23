@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/models/iProudct';
+import { IProduct } from 'src/app/shop/models/iProudct';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 
@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts() {
-    this.prodService.getProducts().subscribe((products) => {
+    this.prodService.getAllProducts().subscribe((products) => {
       this.products = products;
     });
   }
