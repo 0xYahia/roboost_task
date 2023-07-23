@@ -24,7 +24,18 @@
     <section class="col-9">
       <div class="row row-cols-3 g-3 mb-4">
         <div class="col" *ngFor="let product of products">
-          <app-product-items [product]="product"></app-product-items>
+          <dialog #deleteConfirm>
+            <h1>Are you sure?</h1>
+            <button (click)="deleteProd(product.id, deleteConfirm)">Yes</button>
+            <button (click)="deleteConfirm.close()">No</button>
+          </dialog>
+          <app-product-items
+            [deleteConfirm]="deleteConfirm"
+            [product]="product"
+            (deleteEvent)="deleteConfirm.showModal()"
+            (editEvent)="editProd($event)"
+          >
+          </app-product-items>
         </div>
       </div>
 
@@ -32,9 +43,3 @@
     </section>
   </div>
 </div>
-
-<!--
-51AFAF
-119AA2
-00898D
--->

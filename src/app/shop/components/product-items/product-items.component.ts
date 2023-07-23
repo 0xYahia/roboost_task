@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/shop/models/iProudct';
 import { ProductService } from '../../services/product.service';
@@ -10,19 +10,17 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductItemsComponent {
   @Input() product!: IProduct;
+  @Output() deleteEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Output() editEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Input() deleteConfirm!: HTMLDialogElement;
 
   constructor(private router: Router, private prodService: ProductService) {}
 
   editProd(id: number) {
-    this.router.navigate([`/shop/edit/${id}`]);
+    this.editEvent.emit(id);
   }
 
-  deleteProd(id: number, deleteConfirm: HTMLDialogElement) {
-    this.prodService.deleteProduct(id).subscribe((product) => {
-      console.log(product);
-      deleteConfirm.close();
-      //! Not recommended
-      location.reload();
-    });
+  deleteProd(id: number) {
+    this.deleteEvent.emit(id);
   }
 }

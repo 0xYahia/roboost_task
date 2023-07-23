@@ -44,4 +44,16 @@ export class ProductListComponent implements OnInit {
       });
     }
   }
+
+  editProd(event: any) {
+    this.router.navigate([`/shop/edit/${event}`]);
+  }
+
+  deleteProd(event: any, deleteConfirm: HTMLDialogElement) {
+    this.prodService.deleteProduct(event).subscribe((product) => {
+      console.log(product);
+      deleteConfirm.close();
+      this.getProducts();
+    });
+  }
 }

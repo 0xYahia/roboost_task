@@ -15,8 +15,17 @@ export class AuthServices {
     return this.http.post<IUser>(`${this.baseURL}`, user);
   }
 
-  loginUser(user: IUser): Observable<IUser> {
-    return this.http.post<IUser>(`${this.baseURL}/login`, user);
+  loginUser(
+    email: string,
+    password: string
+  ): Observable<{ email: string; password: string }> {
+    return this.http.get<{ email: string; password: string }>(
+      this.baseURL + `?email=${email}&password=${password}`
+    );
+  }
+
+  logout() {
+    localStorage.setItem('isLogged', 'false');
   }
 
   getAllUsers(): Observable<IUser[]> {
