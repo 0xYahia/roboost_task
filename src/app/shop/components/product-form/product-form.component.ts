@@ -21,13 +21,16 @@ export class ProductFormComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.form = FB.group({
-      title: ['', Validators.required],
-      price: ['', Validators.required],
-      description: ['', Validators.required],
-      category: ['', Validators.required],
-      image: [null, Validators.required],
-    });
+    this.form = FB.group(
+      {
+        title: ['', Validators.required],
+        price: ['', Validators.required],
+        description: ['', Validators.required],
+        category: ['', Validators.required],
+        image: [null, Validators.required],
+      },
+      { updateOn: 'blur' }
+    );
     //! Check if we are in editing mode
     this.id = this.activatedRoute.snapshot.params['id'];
 
@@ -43,7 +46,7 @@ export class ProductFormComponent implements OnInit {
       });
     }
     this.prodService.getCategories().subscribe((categories) => {
-      this.categories = categories;
+      this.categories = ['select category', ...categories];
     });
   }
 
