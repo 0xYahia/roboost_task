@@ -1,6 +1,5 @@
 .navbar {
   background-color: var(--main-color-dark);
-  margin-bottom: 62px;
 }
 
 @media (max-width: 991px) {

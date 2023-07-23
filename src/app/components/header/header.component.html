@@ -57,14 +57,7 @@
               >Shop</a
             >
           </li>
-          <!-- <li class="nav-item mx-2">
-            <a
-              class="nav-link text-white"
-              routerLink="/logout"
-              routerLinkActive="active"
-              >Logout</a
-            >
-          </li> -->
+
           <li class="nav-item mx-2">
             <a
               class="nav-link text-white"
@@ -77,6 +70,7 @@
         <!-- Login / Sing up -->
         <div
           class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3"
+          *ngIf="!isLogged; else logged"
         >
           <a
             class="text-white"
@@ -92,6 +86,16 @@
             >Register</a
           >
         </div>
+        <ng-template #logged>
+          <div
+            class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3"
+          >
+            <a class="text-white">{{ email }}</a>
+            <button class="nav-link text-white" (click)="logout()">
+              Logout
+            </button>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>

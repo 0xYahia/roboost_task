@@ -1,7 +1,6 @@
 <div class="container">
   <form #prodForm="ngForm" [formGroup]="form" (ngSubmit)="submitForm()">
     <div class="mb-3">
-      <!-- <label for="title" class="form-label">Title</label> -->
       <input
         formControlName="title"
         type="text"
@@ -11,7 +10,6 @@
       />
     </div>
     <div class="mb-3">
-      <!-- <label for="price" class="form-label">Price</label> -->
       <input
         formControlName="price"
         type="number"
@@ -26,7 +24,6 @@
       </option>
     </select>
     <div class="mb-3">
-      <!-- <label for="title" class="form-label">Title</label> -->
       <input
         (change)="uploadImage($event)"
         type="file"
@@ -35,7 +32,6 @@
       />
     </div>
     <div class="mb-3">
-      <!-- <label for="description" class="form-label">Description</label> -->
       <textarea
         formControlName="description"
         class="form-control"

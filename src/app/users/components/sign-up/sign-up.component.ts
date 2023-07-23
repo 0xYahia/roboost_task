@@ -59,7 +59,7 @@ export class SignUpComponent {
         });
     } else {
       this.authServices.registerUser(this.form.value).subscribe((user) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/shop']);
       });
     }
   }

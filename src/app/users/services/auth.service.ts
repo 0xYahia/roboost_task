@@ -3,20 +3,26 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { IUser } from '../models/iUser';
 import { Observable } from 'rxjs';
+import { LocalService } from '../../shared/local.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthServices {
   private baseURL: string = environment.baseURL + '/users';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private localService: LocalService) {}
 
   registerUser(user: IUser): Observable<IUser> {
     return this.http.post<IUser>(`${this.baseURL}`, user);
   }
 
-  loginUser(user: IUser): Observable<IUser> {
-    return this.http.post<IUser>(`${this.baseURL}/login`, user);
+  loginUser(
+    email: string,
+    password: string
+  ): Observable<{ email: string; password: string }> {
+    return this.http.get<{ email: string; password: string }>(
+      this.baseURL + `?email=${email}&password=${password}`
+    );
   }
 
   getAllUsers(): Observable<IUser[]> {
