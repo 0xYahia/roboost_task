@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProduct } from 'src/app/shop/models/iProudct';
+import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/shop/services/product.service';
+import { IProduct } from '../../models/iProudct';
 
 @Component({
   selector: 'app-product-form',
@@ -25,8 +26,9 @@ export class ProductFormComponent implements OnInit {
       price: ['', Validators.required],
       description: ['', Validators.required],
       category: ['', Validators.required],
-      image: [null],
+      image: [null, Validators.required],
     });
+    //! Check if we are in editing mode
     this.id = this.activatedRoute.snapshot.params['id'];
 
     if (this.id) {
@@ -51,20 +53,15 @@ export class ProductFormComponent implements OnInit {
   }
 
   submitForm() {
+    let chosenEvent!: Observable<IProduct>;
     if (this.editingMode) {
-      this.prodService
-        .updateProduct(this.form.value, this.id)
-        .subscribe((product) => {
-          console.log(product);
-          this.router.navigate(['/shop']);
-          console.log(this.form.value);
-        });
+      chosenEvent = this.prodService.updateProduct(this.form.value, this.id);
     } else {
-      this.prodService.addProduct(this.form.value).subscribe((product) => {
-        console.log(product);
-        this.router.navigate(['/shop']);
-        console.log(this.form.value);
-      });
+      chosenEvent = this.prodService.addProduct(this.form.value);
     }
+    chosenEvent.subscribe((product) => {
+      console.log(product);
+      this.router.navigate(['/shop']);
+    });
   }
 }

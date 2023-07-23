@@ -6,7 +6,11 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { canActivateFn } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: UsersListComponent, pathMatch: 'full' },
+  {
+    path: '',
+    component: UsersListComponent,
+    pathMatch: 'full',
+  },
   { path: 'login', component: LoginComponent, canActivate: [canActivateFn] },
   {
     path: 'register',

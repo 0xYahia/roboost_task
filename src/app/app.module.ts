@@ -9,7 +9,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, NotfoundComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    NotfoundComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

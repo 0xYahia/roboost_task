@@ -30,7 +30,6 @@
             <button (click)="deleteConfirm.close()">No</button>
           </dialog>
           <app-product-items
-            [deleteConfirm]="deleteConfirm"
             [product]="product"
             (deleteEvent)="deleteConfirm.showModal()"
             (editEvent)="editProd($event)"

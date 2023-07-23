@@ -33,7 +33,7 @@ export class LoginComponent {
       .subscribe((user) => {
         console.log(user);
         this.localService.setLogged(this.form.value.email);
-        // this.router.navigate(['/users']);
+        location.replace('/shop');
       });
   }
 

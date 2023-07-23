@@ -91,12 +91,9 @@
             class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3"
           >
             <a class="text-white">{{ email }}</a>
-            <a
-              class="nav-link text-white"
-              routerLink="/logout"
-              routerLinkActive="active"
-              >Logout</a
-            >
+            <button class="nav-link text-white" (click)="logout()">
+              Logout
+            </button>
           </div>
         </ng-template>
       </div>

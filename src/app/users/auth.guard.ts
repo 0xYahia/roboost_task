@@ -26,7 +26,6 @@ class AuthGuard {
       this.router.navigate(['/shop']);
       return false;
     } else {
-      this.router.navigate(['/shop']);
       return true;
     }
   }

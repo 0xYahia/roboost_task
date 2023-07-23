@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { IUser } from '../models/iUser';
 import { Observable } from 'rxjs';
+import { LocalService } from '../../shared/local.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthServices {
   private baseURL: string = environment.baseURL + '/users';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private localService: LocalService) {}
 
   registerUser(user: IUser): Observable<IUser> {
     return this.http.post<IUser>(`${this.baseURL}`, user);
@@ -22,10 +23,6 @@ export class AuthServices {
     return this.http.get<{ email: string; password: string }>(
       this.baseURL + `?email=${email}&password=${password}`
     );
-  }
-
-  logout() {
-    localStorage.setItem('isLogged', 'false');
   }
 
   getAllUsers(): Observable<IUser[]> {
