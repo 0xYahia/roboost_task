@@ -1,16 +1,12 @@
 {
   "products": [
     {
-      "id": 1,
-      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      "price": 50,
-      "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-      "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      "rating": {
-        "rate": 3.9,
-        "count": 120
-      }
+      "title": "Roboost",
+      "price": 1000,
+      "description": "Roboost is the first home delivery management solution that digitally mimics real life operations. Roboost's AI automates all the delivery operations, offering smart solutions to solve performance issues. An AI system that is capable of self-learning to optimize every aspect of the operation continuously. Cut human intervention and put your home delivery fleet on autopilot.",
+      "category": "electronics",
+      "image": "https://roboost.app/assets/img/Home%20Header.png",
+      "id": 1
     },
     {
       "id": 2,
@@ -205,11 +201,11 @@
       }
     },
     {
-      "title": "aaaaaaaaaaa",
-      "price": 100,
-      "description": "bbbbbbbbbbbbbbbbbbbbb",
+      "title": "Laptop",
+      "price": 25000,
+      "description": "Laptop description",
       "category": "electronics",
-      "image": "https://roboost.app/assets/img/Home%20Header.png",
+      "image": "https://img.freepik.com/free-psd/laptop-mock-up_1310-197.jpg?w=740&t=st=1690180614~exp=1690181214~hmac=96468ac76079f930ec222f018fc1680e7d535bff9ef06998322017c33f4b8c89",
       "id": 21
     }
   ],
@@ -446,58 +442,6 @@
       "password": "123",
       "confirmPassword": "123",
       "id": 11
-    },
-    {
-      "name": {
-        "firstname": "Mohamed",
-        "lastname": "Ahmed"
-      },
-      "email": "mohamedyahia831@gmail.com",
-      "address": {
-        "city": "dekernes"
-      },
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 12
-    },
-    {
-      "name": {
-        "firstname": "Mohamed",
-        "lastname": "Ahmed"
-      },
-      "email": "mohamedyahia831@gmail.com",
-      "address": {
-        "city": "dekernes"
-      },
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 13
-    },
-    {
-      "name": {
-        "firstname": "Mohamed",
-        "lastname": "Ahmed"
-      },
-      "email": "mohamedyahia831@gmail.com",
-      "address": {
-        "city": "dekernes"
-      },
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 14
-    },
-    {
-      "name": {
-        "firstname": "Mohamed",
-        "lastname": "Ahmed"
-      },
-      "email": "mohamedyahia831@gmail.com",
-      "address": {
-        "city": "dekernes"
-      },
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 15
     }
   ]
 }

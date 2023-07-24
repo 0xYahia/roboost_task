@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
   categories: string[] = [];
+  selectedCategory!: string;
 
   constructor(private prodService: ProductService, private router: Router) {}
 
@@ -36,6 +37,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onCategorySelected(category: string) {
+    this.selectedCategory = category;
     if (category === 'all') {
       this.getProducts();
     } else {
