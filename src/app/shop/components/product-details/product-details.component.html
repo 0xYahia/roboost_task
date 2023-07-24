@@ -1,26 +1,18 @@
-<div class="row" *ngIf="product">
+<div class="row my-4 w-100" *ngIf="product">
   <div class="col-6">
     <img src="{{ product.image }}" alt="{{ product.title }}" class="w-100" />
   </div>
   <div class="col-6 mt-5">
-    <h2><span class="text-danger">Title: </span>{{ product.title }}</h2>
-    <p>Price: {{ product.price | currency }}</p>
-    <div class="d-flex justify-content-start align-items-center">
-      <i
-        class="fa fa-minus-circle text-warning me-2"
-        style="cursor: pointer; font-size: 2em"
-      ></i>
-      <span
-        *ngIf="product.rating"
-        class="font-weight-bold"
-        style="font-size: 1.5em"
-        ><span class="text-danger">Rate: </span>{{ product.rating.rate }}
-      </span>
-    </div>
+    <h2><span class="titles">Title: </span>{{ product.title }}</h2>
+    <p><span class="titles">Price: </span>{{ product.price | currency }}</p>
+    <span
+      *ngIf="product.rating"
+      class="font-weight-bold"
+      style="font-size: 1.5em"
+      ><span class="titles">Rate: </span>{{ product.rating.rate }}
+    </span>
     <div class="row mt-4">
-      <p>
-        <span class="text-danger">Description: </span>{{ product.description }}
-      </p>
+      <p><span class="titles">Description: </span>{{ product.description }}</p>
     </div>
   </div>
 </div>

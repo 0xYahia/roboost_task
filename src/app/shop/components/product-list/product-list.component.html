@@ -15,7 +15,8 @@
       <ul class="list-group my-3">
         <li
           *ngFor="let category of categories"
-          class="list-group-item btn text-start category"
+          class="list-group-item text-start category"
+          [class.active]="selectedCategory === category"
           (click)="onCategorySelected(category)"
         >
           {{ category }}

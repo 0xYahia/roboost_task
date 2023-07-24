@@ -21,6 +21,7 @@
 .category:hover {
   background-color: var(--main-color-light);
   color: white;
+  cursor: pointer;
 }
 
 .add-btn {
@@ -30,6 +31,12 @@
 
 .add-btn:hover {
   background-color: var(--main-color-light);
-  outline-color: var(--main-color-light);
+  color: white;
+}
+
+.active {
+  background-color: var(--main-color-light);
+
+  border: none;
   color: white;
 }
