@@ -17,3 +17,19 @@
   background-color: #119aa2;
   background-color: #00898d; */
 }
+
+.category:hover {
+  background-color: var(--main-color-light);
+  color: white;
+}
+
+.add-btn {
+  border-color: var(--main-color-light);
+  color: var(--main-color-light);
+}
+
+.add-btn:hover {
+  background-color: var(--main-color-light);
+  outline-color: var(--main-color-light);
+  color: white;
+}

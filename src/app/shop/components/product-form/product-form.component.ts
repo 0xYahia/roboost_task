@@ -26,8 +26,17 @@ export class ProductFormComponent implements OnInit {
         title: ['', Validators.required],
         price: ['', Validators.required],
         description: ['', Validators.required],
-        category: ['', Validators.required],
-        image: [null, Validators.required],
+        category: [
+          '',
+          [Validators.required, Validators.pattern(/^(?!select category$).*/)],
+        ],
+        image: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg)/g),
+          ],
+        ],
       },
       { updateOn: 'blur' }
     );
@@ -50,10 +59,12 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  uploadImage(event: any) {
-    const file = event.target.files[0];
-    this.form.patchValue({ image: file });
-  }
+  // uploadImage(event: any) {
+  //   const file = event.target.files[0];
+  //   this.form.get('image')?.markAsTouched();
+  //   if (!file) return;
+  //   this.form.get('image')?.setValue(file);
+  // }
 
   submitForm() {
     let chosenEvent!: Observable<IProduct>;

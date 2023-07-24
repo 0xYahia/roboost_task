@@ -1,9 +1,11 @@
 import {
   AbstractControl,
+  AsyncValidatorFn,
   FormGroup,
   ValidationErrors,
   ValidatorFn,
 } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 export class myValidator {
   static passwordMatch: ValidatorFn = (
@@ -18,4 +20,12 @@ export class myValidator {
       return null;
     }
   };
+
+  static checkEmailAsync(
+    emailChecker: (email: string) => Observable<ValidationErrors | null>
+  ): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return emailChecker(control.value);
+    };
+  }
 }

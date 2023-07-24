@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { myValidator } from './validator';
 import { AuthServices } from '../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocalService } from '../../../shared/local.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,8 @@ export class SignUpComponent {
     FB: FormBuilder,
     private authServices: AuthServices,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private localService: LocalService
   ) {
     this.form = FB.group(
       {
@@ -25,7 +27,13 @@ export class SignUpComponent {
           firstname: ['', Validators.required],
           lastname: ['', Validators.required],
         }),
-        email: ['', [Validators.required, Validators.email]],
+        email: [
+          '',
+          [Validators.required, Validators.email],
+          myValidator.checkEmailAsync(
+            this.authServices.checkEmailAsync.bind(this.authServices)
+          ),
+        ],
         address: FB.group({
           city: ['', Validators.required],
         }),
@@ -59,7 +67,8 @@ export class SignUpComponent {
         });
     } else {
       this.authServices.registerUser(this.form.value).subscribe((user) => {
-        this.router.navigate(['/shop']);
+        this.localService.setLogged(this.form.value.email);
+        location.replace('/shop');
       });
     }
   }

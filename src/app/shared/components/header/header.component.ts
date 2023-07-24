@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { LocalService } from '../../shared/local.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { LocalService } from '../../local.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  location: any = Location;
   isLogged: boolean = false;
   email: string = '';
   constructor(private localService: LocalService, private router: Router) {

@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
 import { AuthServices } from '../../services/auth.service';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalService } from '../../../shared/local.service';
 
 @Component({
@@ -21,19 +19,25 @@ export class LoginComponent {
     FB: FormBuilder,
     private localService: LocalService
   ) {
-    this.form = FB.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
+    this.form = FB.group(
+      {
+        email: ['', Validators.required],
+        password: ['', Validators.required],
+      },
+      { updateOn: 'blur' }
+    );
   }
 
   login() {
     this.authServices
       .loginUser(this.form.value.email, this.form.value.password)
       .subscribe((user) => {
-        console.log(user);
-        this.localService.setLogged(this.form.value.email);
-        location.replace('/shop');
+        if (user.length > 0) {
+          this.localService.setLogged(this.form.value.email);
+          location.replace('/shop');
+        } else {
+          alert('Wrong email or password');
+        }
       });
   }
 
