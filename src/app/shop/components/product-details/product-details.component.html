@@ -3,20 +3,24 @@
     <img src="{{ product.image }}" alt="{{ product.title }}" class="w-100" />
   </div>
   <div class="col-6 mt-5">
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.price | currency }}</p>
+    <h2><span class="text-danger">Title: </span>{{ product.title }}</h2>
+    <p>Price: {{ product.price | currency }}</p>
     <div class="d-flex justify-content-start align-items-center">
       <i
         class="fa fa-minus-circle text-warning me-2"
         style="cursor: pointer; font-size: 2em"
       ></i>
-      <span class="font-weight-bold" style="font-size: 1.5em"
-        >{{ product.rating.rate }}
+      <span
+        *ngIf="product.rating"
+        class="font-weight-bold"
+        style="font-size: 1.5em"
+        ><span class="text-danger">Rate: </span>{{ product.rating.rate }}
       </span>
     </div>
     <div class="row mt-4">
-      <h4>Description</h4>
-      <p>{{ product.description }}</p>
+      <p>
+        <span class="text-danger">Description: </span>{{ product.description }}
+      </p>
     </div>
   </div>
 </div>

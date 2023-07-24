@@ -26,7 +26,15 @@
                 spellcheck="false"
                 data-ms-editor="true"
               />
-              <div class="invalid-feedback">This field is required</div>
+              <small
+                *ngIf="
+                  form.get('name')?.get('firstname')?.invalid &&
+                  form.get('name')?.get('firstname')?.touched
+                "
+                class="text-danger"
+              >
+                This field is required
+              </small>
             </div>
 
             <div
@@ -46,7 +54,15 @@
                 spellcheck="false"
                 data-ms-editor="true"
               />
-              <div class="invalid-feedback">This field is required</div>
+              <small
+                *ngIf="
+                  form.get('name')?.get('lastname')?.invalid &&
+                  form.get('name')?.get('lastname')?.touched
+                "
+                class="text-danger"
+              >
+                This field is required
+              </small>
             </div>
           </div>
 
@@ -65,7 +81,16 @@
               value=""
               required=""
             />
-            <div class="invalid-feedback">This field is required</div>
+            <small
+              *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+              class="text-danger"
+            >
+              {{
+                form.get("email")?.hasError("emailExists")
+                  ? "Email already exist"
+                  : "Enter valid email"
+              }}
+            </small>
           </div>
 
           <div formGroupName="address">
@@ -82,7 +107,15 @@
                 value=""
                 required=""
               />
-              <div class="invalid-feedback">This field is required</div>
+              <small
+                *ngIf="
+                  form.get('address')?.get('city')?.invalid &&
+                  form.get('address')?.get('city')?.touched
+                "
+                class="text-danger"
+              >
+                This field is required
+              </small>
             </div>
           </div>
 
@@ -100,7 +133,14 @@
               id="reg_password"
               required=""
             />
-            <div class="invalid-feedback">This field is required</div>
+            <small
+              *ngIf="
+                form.get('password')?.invalid && form.get('password')?.touched
+              "
+              class="text-danger"
+            >
+              This field is required
+            </small>
           </div>
 
           <div
@@ -119,40 +159,41 @@
             />
             <div class="invalid-feedback">This field is required</div>
           </div>
+          <small
+            class="text-danger"
+            *ngIf="
+              form.hasError('passwordMatch') &&
+              form.get('confirmPassword')?.touched
+            "
+            >Password doesn't match</small
+          >
 
           <div class="clear"></div>
-          <div class="woocommerce-privacy-policy-text"></div>
           <div class="woocomerce-FormRow form-row">
-            <input
-              type="hidden"
-              id="woocommerce-register-nonce"
-              name="woocommerce-register-nonce"
-              value="228d4ea883"
-            /><input type="hidden" name="_wp_http_referer" value="/signup/" />
-            <button
-              type="submit"
-              class="btn btn-primary"
-              [disabled]="this.form.invalid"
-              name="register"
+            <small
+              *ngIf="
+                form.get('confirmPassword')?.invalid &&
+                form.get('confirmPassword')?.touched
+              "
+              class="text-danger"
             >
-              {{ editingMode ? "Update" : "Register" }}
-            </button>
-            <div class="invalid-feedback">This field is required</div>
+              This field is required
+            </small>
           </div>
-
-          <div class="woocommerce-simple-registration-login-link">
-            <a
-              href="https://themes.getbootstrap.com/wp-login.php?redirect_to=https%3A%2F%2Fthemes.getbootstrap.com%2Fsignup%2F"
-              >Log in</a
-            >
-            <div class="invalid-feedback">This field is required</div>
-          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mt-3"
+            [disabled]="this.form.invalid"
+            name="register"
+          >
+            {{ editingMode ? "Update" : "Register" }}
+          </button>
         </form>
       </div>
 
       <p class="text-gray-soft text-center small mb-2">
         Already have an account?
-        <a href="https://themes.getbootstrap.com/signin/">Sign in</a>
+        <a routerLink="/users/login">Sign in</a>
       </p>
     </div>
   </div>

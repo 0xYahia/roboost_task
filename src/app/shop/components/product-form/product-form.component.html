@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-5">
   <form #prodForm="ngForm" [formGroup]="form" (ngSubmit)="submitForm()">
     <div class="mb-3">
       <input
@@ -8,6 +8,11 @@
         id="title"
         placeholder="Title"
       />
+      <small
+        class="text-danger"
+        *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
+        >This field is required</small
+      >
     </div>
     <div class="mb-3">
       <input
@@ -17,27 +22,53 @@
         id="price"
         placeholder="Price"
       />
+      <small
+        class="text-danger"
+        *ngIf="form.get('price')?.invalid && form.get('price')?.touched"
+        >This field is required</small
+      >
     </div>
-    <select formControlName="category" class="dropdown">
-      <option *ngFor="let category of categories">
-        {{ category }}
-      </option>
-    </select>
+    <div>
+      <select formControlName="category" class="dropdown mb-3">
+        <option *ngFor="let category of categories">
+          {{ category }}
+        </option>
+      </select>
+      <small
+        class="text-danger d-block mt-0 mb-2"
+        *ngIf="form.get('category')?.invalid && form.get('category')?.touched"
+        >Choose category</small
+      >
+    </div>
     <div class="mb-3">
       <input
-        (change)="uploadImage($event)"
-        type="file"
+        placeholder="Image url"
+        formControlName="image"
+        type="url"
         class="form-control"
         id="image"
       />
+      <small
+        class="text-danger"
+        *ngIf="form.get('image')?.invalid && form.get('image')?.touched"
+        >Pleas enter valid image url</small
+      >
     </div>
     <div class="mb-3">
       <textarea
+        placeholder="Description"
         formControlName="description"
         class="form-control"
         id="description"
         rows="3"
       ></textarea>
+      <small
+        class="text-danger"
+        *ngIf="
+          form.get('description')?.invalid && form.get('description')?.touched
+        "
+        >This field is required</small
+      >
     </div>
     <button [disabled]="prodForm.invalid" type="submit" class="btn btn-primary">
       {{ editingMode ? "Update" : "Add" }}

@@ -1,33 +1,42 @@
-<div class="container">
+<div class="container my-4">
   <div class="row">
     <form [formGroup]="form" class="form-signin" (ngSubmit)="submitForm()">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input
-        formControlName="email"
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Email address"
-        required=""
-        autofocus=""
-      />
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input
-        formControlName="password"
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Password"
-        required=""
-      />
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me" /> Remember me
-        </label>
+      <div>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input
+          formControlName="email"
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Email address"
+          required=""
+          autofocus=""
+        />
+        <small
+          class="text-danger"
+          *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+          >This field is required</small
+        >
+      </div>
+      <div>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input
+          formControlName="password"
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Password"
+          required=""
+        />
+        <small
+          class="text-danger"
+          *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+          >This field is required</small
+        >
       </div>
       <button
-        class="btn btn-lg btn-primary btn-block"
+        class="btn btn-lg btn-primary btn-block mt-4"
         type="submit"
         [disabled]="this.form.invalid"
       >

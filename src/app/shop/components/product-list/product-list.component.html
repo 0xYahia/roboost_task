@@ -1,20 +1,21 @@
 <!--  -->
 <div class="container">
   <div class="row">
-    <button
-      type="button"
-      class="btn btn-sm btn-outline-primary"
-      (click)="addProduct()"
-    >
-      Add
-    </button>
+    <div>
+      <button
+        type="button"
+        class="add-btn btn btn-sm my-5 w-25"
+        (click)="addProduct()"
+      >
+        Add Product
+      </button>
+    </div>
     <section class="col-3">
-      <h5 class="text-warning ms-3">Sort</h5>
       <h5 class="text-warning ms-3">Type of Categories</h5>
       <ul class="list-group my-3">
         <li
           *ngFor="let category of categories"
-          class="list-group-item"
+          class="list-group-item btn text-start category"
           (click)="onCategorySelected(category)"
         >
           {{ category }}

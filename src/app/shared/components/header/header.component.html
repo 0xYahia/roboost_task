@@ -42,15 +42,6 @@
         >
           <li class="nav-item mx-2">
             <a
-              class="nav-link text-white text-white"
-              aria-current="page"
-              routerLink="/"
-              routerLinkActive="active"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item mx-2">
-            <a
               class="nav-link text-white"
               routerLink="/shop"
               routerLinkActive="active"
@@ -72,16 +63,13 @@
           class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3"
           *ngIf="!isLogged; else logged"
         >
-          <a
-            class="text-white"
-            routerLink="/users/login"
-            routerLinkActive="active"
+          <a class="text-white" routerLink="/login" routerLinkActive="active"
             >Login</a
           >
           <a
             class="text-white text-decoration-none px-3 py-1 rounded-4"
             style="background-color: #04c9cf"
-            routerLink="/users/register"
+            routerLink="/register"
             routerLinkActive="active"
             >Register</a
           >

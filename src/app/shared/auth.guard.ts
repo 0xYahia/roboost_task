@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { LocalService } from '../shared/local.service';
+import { LocalService } from './local.service';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -23,6 +23,30 @@ class AuthGuard {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     if (this.authService.isLogged) {
+      if (state.url != '/login' && state.url != '/register') {
+        return true;
+      }
+      alert('You are already logged in');
+      this.router.navigate(['/shop']);
+      return false;
+    } else {
+      if (state.url != '/login' && state.url != '/register') {
+        alert('You must be logged in to access this page');
+        this.router.navigate(['/shop']);
+      }
+      return true;
+    }
+  }
+
+  canActivateProfile(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
+    if (!this.authService.isLogged) {
       this.router.navigate(['/shop']);
       return false;
     } else {
@@ -31,7 +55,7 @@ class AuthGuard {
   }
 }
 
-export const canActivateFn: CanActivateFn = (
+export const authGuardFn: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
