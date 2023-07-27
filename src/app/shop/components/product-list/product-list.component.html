@@ -2,6 +2,7 @@
 <div class="container">
   <div class="row">
     <div>
+      <h1 i18n>{{ title }} running</h1>
       <button
         type="button"
         class="add-btn btn btn-sm my-5 w-25"
@@ -11,10 +12,11 @@
       </button>
     </div>
     <section class="col-3">
-      <h5 class="text-warning ms-3">Type of Categories</h5>
+      <h5 class="text-warning ms-3" i18n>Type of Categories</h5>
       <ul class="list-group my-3">
         <li
           *ngFor="let category of categories"
+          i18n
           class="list-group-item text-start category"
           [class.active]="selectedCategory === category"
           (click)="onCategorySelected(category)"

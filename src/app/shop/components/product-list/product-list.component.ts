@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
   categories: string[] = [];
   selectedCategory!: string;
+  title = $localize`interpolation works!`;
 
   constructor(private prodService: ProductService, private router: Router) {}
 

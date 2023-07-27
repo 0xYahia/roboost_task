@@ -9,10 +9,22 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ar": {
+            "translation": "src/locale/translation.ar.xlf"
+          },
+          "fr": {
+            "translation": "src/locale/translation.fr.xlf"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "outputPath": "dist/roboost_task",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -68,6 +80,9 @@
             },
             "development": {
               "browserTarget": "roboost_task:build:development"
+            },
+            "ar": {
+              "browserTarget": "roboost_task:build:development,ar"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +90,10 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "roboost_task:build"
+            "browserTarget": "roboost_task:build",
+            "outFile": "translation.xlf",
+            "outputPath": "src/locale",
+            "format": "xlf"
           }
         },
         "test": {
