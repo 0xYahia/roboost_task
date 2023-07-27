@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="5780646452197477641" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{title }}"/> running</source>
+        <target><x id="INTERPOLATION" equiv-text="{{title }}"/> بالعربي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shop/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6610681885124103390" datatype="html">
+        <source>Type of Categories</source>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shop/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7708270344948043036" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ category }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shop/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="109269886382899369" datatype="html">
+        <source>interpolation works!</source>
+        <target>أسم المشروع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shop/components/product-list/product-list.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
